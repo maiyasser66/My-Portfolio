@@ -18,7 +18,8 @@
   --lig: 75%;
   --second-hue: 219;
   --first-color: hsl(var(--first-hue), var(--sat), var(--lig));
-  --first-color-alt: hsl(var(--first-hue), var(--sat), 71%); /* -4% */
+  --first-color-alt: hsl(var(--first-hue), var(--sat), 71%);
+  /* -4% */
   --title-color: hsl(var(--second-hue), 15%, 95%);
   --text-color: hsl(var(--second-hue), 8%, 75%);
   --text-color-light: hsl(var(--second-hue), 4%, 55%);
@@ -82,7 +83,8 @@ textarea {
 body {
   background-color: var(--body-color);
   color: var(--text-color);
-  transition: 0.4s; /* for light mode animation */
+  transition: 0.4s;
+  /* for light mode animation */
 }
 
 h1,
@@ -183,6 +185,7 @@ body.light-theme {
 .light-theme::-webkit-scrollbar {
   background-color: hsl(var(--second-hue), 8%, 80%);
 }
+
 /*=============== REUSABLE CSS CLASSES ===============*/
 .container {
   max-width: 968px;
@@ -279,11 +282,9 @@ body.light-theme {
 
 /* Active link */
 .active-link {
-  background: linear-gradient(
-    180deg,
-    hsla(var(--first-hue), var(--sat), var(--lig), 0.5),
-    hsla(var(--first-hue), var(--sat), var(--lig), 0.2)
-  );
+  background: linear-gradient(180deg,
+      hsla(var(--first-hue), var(--sat), var(--lig), 0.5),
+      hsla(var(--first-hue), var(--sat), var(--lig), 0.2));
   box-shadow: 0 0 16px hsla(var(--first-hue), var(--sat), var(--lig), 0.4);
   border-radius: 5rem;
 
@@ -334,13 +335,11 @@ body.light-theme {
 
 .home__handle {
   justify-self: center;
-  width: 190px;
-  height: 293px;
-  background: linear-gradient(
-    180deg,
-    hsla(var(--first-hue), var(--sat), var(--lig), 0.5),
-    hsla(var(--first-hue), var(--sat), var(--lig), 0.1)
-  );
+  width: 290px;
+  height: 393px;
+  background: linear-gradient(180deg,
+      hsla(var(--first-hue), var(--sat), var(--lig), 0.5),
+      hsla(var(--first-hue), var(--sat), var(--lig), 0.1));
 
   border-radius: 10rem 10rem 1rem 1rem;
   display: flex;
@@ -348,6 +347,14 @@ body.light-theme {
   justify-content: center;
   overflow: hidden;
 }
+
+.home__handle img {
+  width: 80%;
+  height: 80%;
+  object-fit: cover;
+  display: block;
+}
+
 
 .home__button {
   display: flex;
@@ -477,6 +484,71 @@ body.light-theme {
 .about__description {
   margin-bottom: 2rem;
 }
+
+/*=============== EDUCATION ===============*/
+.education__container {
+  row-gap: 2rem;
+  padding-top: 1rem;
+}
+
+.education__card {
+  background-color: var(--container-color);
+  padding: 2rem 1.5rem;
+  border-radius: 1.25rem;
+  text-align: center;
+  transition: 0.4s;
+}
+
+.education__card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 24px hsla(var(--first-hue), var(--sat), var(--lig), 0.2);
+}
+
+.education__icon {
+  font-size: 2rem;
+  color: var(--first-color);
+  margin-bottom: 1rem;
+}
+
+.education__title {
+  font-size: var(--normal-font-size);
+  margin-bottom: 0.5rem;
+}
+
+.education__subtitle {
+  display: block;
+  font-size: var(--small-font-size);
+  color: var(--text-color);
+  margin-bottom: 0.25rem;
+}
+
+.education__date {
+  font-size: var(--smaller-font-size);
+  color: var(--text-color-light);
+}
+
+/* For medium devices */
+/*=============== EDUCATION GRID FIX ===============*/
+
+/* Tablet and above */
+@media screen and (min-width: 630px) {
+  .education__container {
+    grid-template-columns: repeat(2, 1fr);
+    justify-content: center;
+  }
+}
+
+/* Large screens */
+@media screen and (min-width: 992px) {
+  .education__container {
+    grid-template-columns: repeat(2, 1fr);
+    max-width: 700px;
+    margin: 0 auto;
+  }
+}
+
+
+
 
 /*=============== SKILLS ===============*/
 .skills__container {
@@ -631,6 +703,7 @@ body.light-theme {
   color: var(--first-color);
   cursor: pointer;
 }
+
 /*Active modal*/
 
 .active-modal {
@@ -702,40 +775,6 @@ body.light-theme {
   color: var(--body-color);
 }
 
-/*=============== TESTIMONIAL ===============*/
-.testimonial__card {
-  background-color: var(--container-color);
-  padding: 1.25rem 1.5rem;
-  border-radius: 1.5rem;
-  margin-bottom: 3rem;
-}
-
-.testimonial__img {
-  width: 60px;
-  border-radius: 3rem;
-  margin-bottom: 1rem;
-}
-
-.testimonial__name {
-  font-size: var(--normal-font-size);
-  font-weight: var(--font-medium);
-  margin-bottom: 0.25rem;
-}
-
-.testimonial__description {
-  font-size: var(--small-font-size);
-  margin-bottom: 0.15rem;
-}
-
-/* Swiper class */
-.swiper-pagination-bullet {
-  background-color: var(--text-color-light);
-}
-
-.swiper-pagination-bullet-active {
-  background-color: var(--first-color);
-}
-
 /*=============== CONTACT ===============*/
 .contact__container {
   row-gap: 3rem;
@@ -776,9 +815,13 @@ body.light-theme {
 }
 
 .contact__card-data {
-  display: block;
-  margin-bottom: 0.75rem;
+    display: block;
+    margin-bottom: 0.75rem;
+    word-wrap: break-word; 
+    overflow-wrap: anywhere; 
+    text-align: center;  
 }
+
 
 .contact__button {
   color: var(--first-color);
@@ -838,6 +881,7 @@ body.light-theme {
 .contact__form-area textarea {
   resize: none;
 }
+
 /*=============== FOOTER ===============*/
 .footer {
   background-color: var(--first-color);
@@ -1055,6 +1099,7 @@ body.light-theme {
   .contact__form {
     width: 340px;
   }
+
   /* .contact__info {
     grid-template-columns: 350px;
     justify-content: center;
@@ -1108,6 +1153,7 @@ body.light-theme {
   .home__img {
     width: 220px;
   }
+
   .home__social-link {
     padding: 0.4rem;
     font-size: 1.25rem;
