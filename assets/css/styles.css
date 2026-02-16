@@ -441,7 +441,8 @@ body.light-theme {
 
 /*=============== ABOUT ===============*/
 .about__container {
-  row-gap: 2.5rem;
+  display: flex;       
+  justify-content: center;       
 }
 
 .about__img {
